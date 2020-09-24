@@ -9,6 +9,7 @@ import Select from "@material-ui/core/Select"
 import { ASSIGN_JOB, CANCEL_ASSIGNMENT } from "../components/TableRenderer"
 import ClearIcon from "@material-ui/icons/Clear"
 import Button from "@material-ui/core/Button"
+import format from "date-fns/format"
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -92,7 +93,7 @@ const JobOrderDashboard = ({
               {tableData.dateHeading.map((item, index) => {
                 return (
                   <ThTopRow key={index} hasData={item}>
-                    {item && item.data}
+                    {item && format(new Date(item.data), "dd-MMM-yy")}
                   </ThTopRow>
                 )
               })}
